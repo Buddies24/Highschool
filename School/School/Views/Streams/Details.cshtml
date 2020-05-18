@@ -1,0 +1,42 @@
+﻿@model School.Models.Stream
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stream</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StreamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreamSubjects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreamSubjects)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreCompulsorySubjects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreCompulsorySubjects)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

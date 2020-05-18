@@ -1,0 +1,50 @@
+﻿@model IEnumerable<School.Models.Student>
+
+@{
+    ViewBag.Title = "Assigned";
+}
+
+<h2>Assiged Students</h2>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentGrade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gradeName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.MidName) @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradeName)
+            </td>
+            <td>
+                @Html.ActionLink("Promote", "CommingSoon") |
+                @Html.ActionLink("Failed", "CommingSoon")
+            </td>
+        </tr>
+    }
+</table>

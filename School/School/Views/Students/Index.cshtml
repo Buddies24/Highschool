@@ -1,0 +1,79 @@
+﻿@model IEnumerable<School.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Students</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentGrade)
+        </th>
+        <th>
+            Date Applied/Registered
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.MidName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @if (item.gradeId == 0)
+                {
+                <p>
+                    Pending approval (Grade  @Html.DisplayFor(modelItem => item.CurrentGrade))
+                </p>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.CurrentGrade)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateRegistered)
+            </td>
+            @if (item.gradeId != 0)
+            {
+                <td>
+                    <a href="/StudentGradeSubjectHistories/StudentHistory/@item.Id">
+                        View History
+                    </a>
+                </td>
+            }
+        </tr>
+    }
+
+</table>

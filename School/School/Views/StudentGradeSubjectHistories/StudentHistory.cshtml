@@ -1,0 +1,66 @@
+﻿@model IEnumerable<School.Models.StudentGradeSubjectHistory>
+
+@{
+    ViewBag.Title = "Student History";
+    IdentitySample.Models.ApplicationDbContext db = new IdentitySample.Models.ApplicationDbContext();
+}
+<hr />
+<h2>History for @ViewBag.Student </h2>
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentGrade)
+        </th>
+        <th>
+            Subject
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentMark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectStatus)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentGrade)
+            </td>
+            <td>
+                @{
+                    var sub = db.GradeSubjects.FirstOrDefault(a=>a.Id==item.GradeSubectId);
+                    var subNull = false;
+                    if(sub == null)
+                    {
+                        subNull = true;
+                    }
+                }
+                @if (!subNull)
+                {
+                <p>@sub.SubjectName</p>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentMark)
+            </td>
+            <td>
+                @if (item.SubjectStatus.ToString().Equals("NewToSchoolAndGrade"))
+                {
+                    <p>
+                        Enrolled
+                    </p>
+                }
+                else
+                {
+
+                    @Html.DisplayFor(modelItem => item.SubjectStatus)
+                }
+            </td>
+        </tr>
+    }
+
+</table>

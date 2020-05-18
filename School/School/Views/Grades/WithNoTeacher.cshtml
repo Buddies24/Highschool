@@ -1,0 +1,66 @@
+﻿@model IEnumerable<School.Models.Grade>
+
+@{
+    ViewBag.Title = "WithNoTeacher";
+}
+
+    <h2>Grades With No Teacher</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeLetter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassroomId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfStudentsInClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxNumOfStudsInClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacherId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeLetter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassroomId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfStudentsInClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxNumOfStudsInClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacherId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

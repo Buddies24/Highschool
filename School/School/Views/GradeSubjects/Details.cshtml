@@ -1,0 +1,50 @@
+﻿@model School.Models.GradeSubject
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GradeSubject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinPassMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinPassMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ListOfStreamsIdRequiredAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ListOfStreamsIdRequiredAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

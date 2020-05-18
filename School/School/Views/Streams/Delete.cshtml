@@ -1,0 +1,48 @@
+﻿@model School.Models.Stream
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Stream</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StreamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreamSubjects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreamSubjects)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreCompulsorySubjects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreCompulsorySubjects)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

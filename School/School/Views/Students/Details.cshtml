@@ -1,0 +1,146 @@
+﻿@model School.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MidName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MidName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrevSchoolReport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrevSchoolReport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.street_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.street_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.route)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.route)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.administrative_area_level_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.administrative_area_level_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.locality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.locality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postal_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postal_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentGrade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateRegistered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateRegistered)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

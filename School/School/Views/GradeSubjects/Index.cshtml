@@ -1,0 +1,65 @@
+﻿@model IEnumerable<School.Models.GradeSubject>
+
+@{
+    ViewBag.Title = "Index";
+    IdentitySample.Models.ApplicationDbContext db = new IdentitySample.Models.ApplicationDbContext();
+}
+<br />
+<br />
+
+<h1>Subjects</h1>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MinPassMark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacherId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        var teacher = db.Teachers.FirstOrDefault(a => a.Id == item.teacherId);
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinPassMark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradeNumber)
+            </td>
+            <td>
+                @if (teacher != null)
+                {
+                    <p>
+                        @teacher.Name @teacher.MidName @teacher.Surname
+                    </p>
+                }
+                else
+                {
+                    <span>---</span>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
